@@ -1,0 +1,58 @@
+<html><head></head><body>
+    <div style="width:80vw"><canvas id="myChart"></canvas></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    kk = 0
+    nn = []
+    pp = []
+    pi = []
+    for ( i=0 ; i<100000001 ; i++ ) {
+      x = Math.random()
+      y = Math.random()
+
+      if ( (x*x+y*y) < 1 ) kk++
+      if ( i == 100 ) padd(i,kk)
+      if ( i == 1000 ) padd(i,kk)
+      if ( i == 10000 ) padd(i,kk)
+      if ( i == 100000 ) padd(i,kk)
+      if ( i == 1000000 ) padd(i,kk)
+      if ( i == 10000000 ) padd(i,kk)
+      if ( i == 20000000 ) padd(i,kk)
+      if ( i == 30000000 ) padd(i,kk)
+      if ( i == 40000000 ) padd(i,kk)
+      if ( i == 50000000 ) padd(i,kk)
+      if ( i == 60000000 ) padd(i,kk)
+      if ( i == 70000000 ) padd(i,kk)
+      if ( i == 80000000 ) padd(i,kk)
+      if ( i == 90000000 ) padd(i,kk)
+      if ( i == 100000000 ) padd(i,kk)
+    }
+    function padd(t,k) {
+      alert(t + ":" + k + ":" + 4*k/t)
+      nn.push(t); pp.push(4*k/t); pi.push(3.141592)
+    }
+    datainfo = {
+    labels : nn,
+    datasets : [{
+      label : 'Pi guess',
+      backgroundColor : ['gray'],
+      borderColor : 'blue',
+      data : pp,
+      tension : 0.5
+   },
+   {
+      label : 'Answer',
+      backgroundColor : ['gray'],
+      borderColor : 'red',
+      data : pi,
+      tension : 0.5
+   },
+   ]
+}
+const config = {
+  type : 'line',
+  data : datainfo
+}
+mychart = new Chart(document.getElementById("myChart"), config)
+    </script>
+    </body></html>
