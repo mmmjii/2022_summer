@@ -1,0 +1,31 @@
+<html><head>
+<style> div( position : relative; width:80vw; margin: auto ) </style>
+<h1>SQRT2 Calculation by minji</h1>
+<script>
+window.onload = function() {
+  high = 3
+  low = 2
+  delta = 0.00000001
+  k = 1
+  while (true) {
+    cbrt = (high + low)/2
+    cbrt3 = cbrt * cbrt * cbrt
+    if ( Math.abs(cbrt3 - 10) < delta ){
+      var b = document.querySelector('h1')
+      b.innerHTML += k+ "¹øÂ° °ª" 
+      b.innerHTML += cbrt
+      break
+    }  
+    else if (cbrt3 > 10)
+      high = cbrt
+    else if (cbrt3 < 10)
+      low = cbrt
+    k++    
+  }
+
+}
+</script>
+</head>
+<body>
+</body>
+</html>

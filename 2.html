@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+window.onload = function() {
+  mydata = [1,2,3,4,5]
+  trialnum = []
+  addnum = Math.floor(Math.random()*100)+1
+  for(k=0; k<addnum; k++)
+    mydata[5+k] = Math.floor(Math.random()*100 +1)
+  sum = 0
+  for(k=0; k<mydata.length; k++) {
+    sum += mydata[k]
+    trialnum[k] = k
+  }
+}
+
+var average = sum/mydata.length;
+var result = data.concat([data.length], [sum], [average]);
+alert(result)
+</script>
+
+</head>
+<body>
+</body>
+</html>
+

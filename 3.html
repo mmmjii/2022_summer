@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = "UTF-8">
+<title>test3</title>
+<script>
+window.onload = function() {
+  jinsu = ( name : "Jinsu", age : 21 )
+  chulsu = ( name : "Chulsu", age : 20 )
+  function my (e) {
+    sum = JInsu.age + chulsu.age
+    e.target.innerHTML += sum
+    jinsu.age++
+    chulsu.age++
+  }
+  btn = document.querySelectorAll("button")
+  for (k=0; k<btn.length; k++) {
+    btn[k].onclick = fucntion(e) {
+      sum = jinsu.age + chulsu.age
+      this.innerHTML += sum
+      jinsu.age++
+      chulsu.age++
+    }
+  }
+}
+
+</script>
+</head>
+<body>
+</body>
+
+</html>
