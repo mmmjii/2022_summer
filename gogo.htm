@@ -1,0 +1,182 @@
+<html>
+<head>
+  <center><h1 id = "title">______지구를 지키자 GO! ______</h1></center>
+  <center><h3 id = "subtitle"> 지구를 지키는 퀴즈</h3></center>
+  
+  
+  
+  <script>
+    var title = document.getElementById('title');
+    title.style.color = 'white';
+    title.style.background = 'green';
+    var subtitle = document.getElementById('subtitle');
+
+  </script>
+</head>
+<body>
+<div id="quiz"> </div>
+<button id="submit" style="border:1px solid tomato; margin:2px; border-radius:5px; color:tomato;"> 제출하기 </button>
+<div id="result"> </div>
+<script>
+//Model
+const quizData = [
+
+     {
+
+         question : '1. 재활용이 가능한 쓰레기 중 올바르지 않은것은? ',
+
+         answers : {
+
+            a : "페트병 ",
+
+            b : "깨끗한 흰색 스티로폼",
+
+            c : "아이스팩"
+
+         },
+
+        correct : 'c'
+
+     },
+
+     {
+
+         question : '2. 지구를 지키기 위한 생활 속 작은 방안으로 옳지 않은것을 고르시오',
+
+         answers : {
+
+             a : '탄소포인트제에 동참한다.',
+
+             b : '대중교통보다는 자가용을 이용하여 이동시간을 최소화 한다.',
+
+             c : '중고거래 생활화한다.'
+
+         },
+
+        correct : 'b'
+
+     },
+
+     {
+
+           question : '3. 지구의 날은 지구 환경오염 문제의 심각성을 알리기 위해서 자연보호자들이 제정한 지구 환경보호의 날입니다. 그렇다면 지구의 날의 매년 언제 개최 언제 일까요?',
+
+           answers : {
+
+                 a : '4월 22일',
+
+                 b : '4월 23일',
+
+                 c : '4월 24일'
+
+           },
+
+        correct : 'a'
+
+     }
+
+]
+
+ 
+
+ const quizDisplay = document.getElementById('quiz');
+
+ const submitBtn = document.getElementById('submit');
+
+ const resultDisplay = document.getElementById('result');
+
+ 
+
+ function buildQuiz(){
+
+      const output = [ ]; 
+
+       quizData.forEach(  
+
+           (currentQuestion, questionNum) => { 
+
+                       const answers = [ ];     
+
+                       for(item in currentQuestion.answers){  
+
+                                   answers.push(`<label>
+
+                                                <input type="radio" name="question${questionNum}" value="${item}">
+
+                                                    ${item} : ${currentQuestion.answers[item]}
+
+                                                </label>`);
+
+                          }
+
+                             output.push(`<div class="question"> ${currentQuestion.question}</div>
+
+                                          <div class="answer">${answers.join('')}</div>`);
+
+                    }              
+
+       );
+
+          quizDisplay.innerHTML = output.join('</br>');
+
+    }
+
+	
+
+ function showResult(){
+
+         const answerDisplays = quizDisplay.querySelectorAll('.answer');  
+
+           let numCorrect = 0; 
+
+ 
+
+            quizData.forEach( (currentQuestion, questionNum)=>{
+
+                   const answerDisplay = answerDisplays[questionNum]; 
+
+                   const selector = `input[name=question${questionNum}]:checked`;  
+
+                   const userAnswer = (answerDisplay.querySelector(selector) || {}).value;  
+
+ 
+
+ 
+
+                    if(userAnswer === currentQuestion.correct){    
+
+                            numCorrect++;
+
+                            answerDisplays[questionNum].style.color = 'lightgreen';
+
+                    }else{
+
+                            answerDisplays[questionNum].style.color = 'red';
+
+                    }
+
+            });
+
+              resultDisplay.innerHTML = `${quizData.length} 문제 중에 ${numCorrect} 문제 맞췄어요!! `; 
+
+    }
+
+ 
+
+    buildQuiz(); 
+
+    submitBtn.addEventListener('click',showResult);   
+
+ 
+
+ 
+
+ 
+
+</script>
+
+ 
+
+</body>
+
+</html>
